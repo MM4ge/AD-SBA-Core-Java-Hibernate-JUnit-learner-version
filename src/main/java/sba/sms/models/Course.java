@@ -20,10 +20,14 @@ helper methods
 @RequiredArgsConstructor
 @Getter
 @Setter
+
+@Entity
+@Table(name = "course")
 public class Course {
 
     // id	int	Course unique identifier	Primary key
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     // name	String	Course name	50 character limit, not null
