@@ -68,15 +68,18 @@ public class Course {
         return Objects.hash(id, name, instructor);
     }
 
-   public void addStudent(Student s)
-    {
-        students.add(s);
-        s.getCourses().add(this);
-    }
+   public void addStudent(Student s) {
+       if (s != null && !students.contains(s)) {
+           students.add(s);
+           s.getCourses().add(this);
+       }
+   }
 
     public void removeStudent(Student s)
     {
-        students.remove(s);
-        s.getCourses().remove(this);
+        if(s != null) {
+            students.remove(s);
+            s.getCourses().remove(this);
+        }
     }
 }

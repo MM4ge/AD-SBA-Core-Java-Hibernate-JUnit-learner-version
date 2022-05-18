@@ -77,13 +77,17 @@ public class Student {
 
     public void addCourse(Course c)
     {
-        courses.add(c);
-        c.getStudents().add(this);
+        if(c != null && !courses.contains(c)) {
+            courses.add(c);
+            c.getStudents().add(this);
+        }
     }
 
     public void removeCourse(Course c)
     {
-        courses.remove(c);
-        c.getStudents().remove(this);
+        if(c != null) {
+            courses.remove(c);
+            c.getStudents().remove(this);
+        }
     }
 }
